@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Prospectos Digitales - Teal & Blue Palette */
+  /* Matching the logo colors: teal figures and blue checkmark */
+  
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Base - Light Mode (Clean, Professional) */
+  --background: 0 0% 100%;
+  --foreground: 200 25% 15%; /* Dark Blue-Gray */
+  
+  /* Primary - Teal (matching logo figures) */
+  --primary: 175 70% 40%; /* Teal */
+  --primary-foreground: 0 0% 100%;
+  
+  /* Secondary - Light Teal/Gray */
+  --secondary: 175 20% 96%;
+  --secondary-foreground: 200 25% 15%;
+  
+  /* Muted */
+  --muted: 200 14% 96%;
+  --muted-foreground: 200 10% 45%;
+  
+  /* Accent - Blue (matching logo checkmark) */
+  --accent: 210 85% 50%;
+  --accent-foreground: 0 0% 100%;
+  
+  /* Destructive */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  /* Borders & Inputs */
+  --border: 200 15% 90%;
+  --input: 200 15% 90%;
+  --ring: 175 70% 40%;
+
+  /* Radius */
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Dark Mode - Teal & Blue */
+  --background: 200 30% 8%; /* Dark Blue */
+  --foreground: 180 30% 98%;
+  
+  --primary: 175 70% 45%; /* Teal */
+  --primary-foreground: 200 30% 8%;
+  
+  --secondary: 200 25% 15%;
+  --secondary-foreground: 180 30% 98%;
+  
+  --muted: 200 25% 15%;
+  --muted-foreground: 180 20% 65%;
+  
+  --accent: 210 85% 55%; /* Blue */
+  --accent-foreground: 200 30% 8%;
+  
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 200 25% 18%;
+  --input: 200 25% 18%;
+  --ring: 175 70% 45%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-foreground;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40 transition-colors;
+}
+
+/* Utilities */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(0, 150, 136, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
